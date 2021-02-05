@@ -2,6 +2,23 @@
 A simple program to create file structures from templates
 
 ## Usage
+```
+usage: platelet.py [-h] [--path PATH] [--vars] [-v] [-d] template
+
+Create a file structure based on the given template
+
+positional arguments:
+  template       YAML formatted template file
+
+optional arguments:
+  -h, --help     show this help message and exit
+  --path PATH    output directory
+  --vars         Print the variables used in the template, then exit
+  -v, --verbose  Print the file tree as it is written
+  -d, --dryrun   Print the file tree without changing the filesystem
+
+```
+## Example
 Create a template file for your file structure. For example `template.yaml`
 ```yaml
 dir1:
