@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import argparse
 import os
 import re
@@ -21,11 +23,6 @@ def get_variables_from_args(args: str) -> dict:
         if len(split) > 0 and len(split[0]) > 0:
             variables[split[0]] = split[1]
     return variables
-
-
-def get_script_path() -> str:
-    '''Get the execution directory of the script'''
-    return os.path.dirname(os.path.realpath(sys.argv[0]))
 
 
 def exists(string: str) -> str:
@@ -74,7 +71,7 @@ def get_args():
     '''Parse the arguments passed into the program'''
     parser = argparse.ArgumentParser(description='Create a file structure based on the given template')
     parser.add_argument('template', type=extant_file, help='YAML formatted template file')
-    parser.add_argument('--path', type=extant_dir, default=get_script_path(), help='output directory')
+    parser.add_argument('--path', type=extant_dir, default=os.getcwd(), help='output directory')
     parser.add_argument('--vars', action='store_true', help='Print the variables used in the template, then exit')
     parser.add_argument('-v','--verbose', action='store_true', help='Print the file tree as it is written')
     parser.add_argument('-d','--dryrun', action='store_true', help='Print the file tree without changing the filesystem')
